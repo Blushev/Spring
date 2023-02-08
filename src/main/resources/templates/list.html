@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TODO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body style=" font-family: 'Arial'; text-align: center; list-style-type: none;">
+    <h1 th:text="${appName}" style="color: green">Default app name</h1>
+    <ul>
+        <li th:each="p : ${list}" style="
+        border: green solid 2px;
+        width: 300px;
+        padding: 0 10px;
+        margin: 0 0 10px 0;
+        list-style-type: none;
+        ">
+
+            <p th:text="${p.text}">text</p>
+            <p>(лайков <span th:text="${p.likes}">999</span>)</p>
+        </li>
+    </ul>
+</body>
+</html>
