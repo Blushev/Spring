@@ -6,16 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostService {
+public class LikesService {
     @Autowired
     PostRepository postRepository;
 
-    public Iterable<Post> listAllPosts() {
-        return postRepository.findAll();
-    }
-
-    public void create(String text) {
-        Post post = new Post(null, text);
+    public Integer like(Long postId){
+        Post post = postRepository.findById(postId).get();
+        post.setLikes(post.getLikes() + 1);
         postRepository.save(post);
+        return post.getLikes();
     }
 }
